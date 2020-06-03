@@ -80,6 +80,9 @@ public class MiraklVoucherEntry implements Serializable {
 
     @Column(name = "subscription_amount")
     private String subscriptionAmount;
+    
+    @Column(name = "subscription_amount_vat")
+    private String subscriptionAmountVat;
 
     @Column(name = "total_charged_amount")
     private String totalChargedAmount;
@@ -203,7 +206,7 @@ public class MiraklVoucherEntry implements Serializable {
     public String getSubscriptionAmount() {
         return subscriptionAmount;
     }
-
+    
     public MiraklVoucherEntry subscriptionAmount(String subscriptionAmount) {
         this.subscriptionAmount = subscriptionAmount;
         return this;
@@ -212,6 +215,20 @@ public class MiraklVoucherEntry implements Serializable {
     public void setSubscriptionAmount(String subscriptionAmount) {
         this.subscriptionAmount = subscriptionAmount;
     }
+    
+    public String getSubscriptionAmountVat() {
+        return subscriptionAmountVat;
+    }
+    
+    public MiraklVoucherEntry subscriptionAmountVat(String subscriptionAmountVat) {
+        this.subscriptionAmountVat = subscriptionAmountVat;
+        return this;
+    }
+
+    public void setSubscriptionAmountVat(String subscriptionAmountVat) {
+        this.subscriptionAmount = subscriptionAmountVat;
+    }
+    
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     public String getTotalChargedAmount() {
@@ -283,6 +300,8 @@ public class MiraklVoucherEntry implements Serializable {
             + "'"
             + ", subscriptionAmount='"
             + getSubscriptionAmount()
+            + ", subscriptionAmountVat='"
+            + getSubscriptionAmountVat()
             + "'"
             + ", totalChargedAmount='"
             + getTotalChargedAmount()

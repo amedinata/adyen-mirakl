@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+        <!--
+          ~                       ######
+          ~                       ######
+          ~ ############    ####( ######  #####. ######  ############   ############
+          ~ #############  #####( ######  #####. ######  #############  #############
+          ~        ######  #####( ######  #####. ######  #####  ######  #####  ######
+          ~ ###### ######  #####( ######  #####. ######  #####  #####   #####  ######
+          ~ ###### ######  #####( ######  #####. ######  #####          #####  ######
+          ~ #############  #############  #############  #############  #####  ######
+          ~  ############   ############  #############   ############  #####  ######
+          ~                                      ######
+          ~                               #############
+          ~                               ############
+          ~
+          ~ Adyen Mirakl Connector
+          ~
+          ~ Copyright (c) 2018 Adyen B.V.
+          ~ This file is open source and available under the MIT license.
+          ~ See the LICENSE file for more info.
+          ~
+          -->
+
+<databaseChangeLog
+xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+<!--
+    Added new column to store subscription amount vat
+-->
+<changeSet id="20200603153000-1" author="tiendanimal">
+    <addColumn tableName="mirakl_voucher_entry">
+        <column name="subscription_amount_vat" type="varchar(255)"/>
+    </addColumn>
+    
+</changeSet>
+
+</databaseChangeLog>

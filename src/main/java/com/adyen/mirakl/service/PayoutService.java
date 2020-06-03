@@ -94,6 +94,7 @@ public class PayoutService {
             miraklVoucherEntry.setInvoiceNumber(record.get("invoice-number"));
             miraklVoucherEntry.setShopName(record.get("shop-name"));
             miraklVoucherEntry.setSubscriptionAmount(record.get("subscription-amount"));
+            miraklVoucherEntry.setSubscriptionAmountVat(record.get("subscription-amount-vat"));
             miraklVoucherEntry.setTotalChargedAmount(record.get("total-charged-amount"));
             miraklVoucherEntry.setTotalChargedAmountVat(record.get("total-charged-amount-vat"));
             miraklVoucherEntryRepository.save(miraklVoucherEntry);
