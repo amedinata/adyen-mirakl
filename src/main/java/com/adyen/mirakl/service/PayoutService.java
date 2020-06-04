@@ -23,6 +23,7 @@
 package com.adyen.mirakl.service;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.List;
 import javax.annotation.Resource;
 import org.apache.commons.csv.CSVFormat;
@@ -289,8 +290,13 @@ public class PayoutService {
     protected TransferFundsRequest createTransferFundsSubscription(GetAccountHolderResponse accountHolderResponse, MiraklVoucherEntry miraklVoucherEntry) throws Exception {
 
         TransferFundsRequest transferFundsRequest = new TransferFundsRequest();
-        Amount adyenAmount = Util.createAmount(miraklVoucherEntry.getSubscriptionAmount(), miraklVoucherEntry.getCurrencyIsoCode());
-
+        
+        BigDecimal subscriptionAmount = new BigDecimal(miraklVoucherEntry.getSubscriptionAmount());
+        BigDecimal subscriptionAmountVat = new BigDecimal(miraklVoucherEntry.getSubscriptionAmountVat());
+        BigDecimal totalSubscription = subscriptionAmount.add(subscriptionAmountVat);
+        
+        Amount adyenAmount = Util.createAmount(totalSubscription.toString(), miraklVoucherEntry.getCurrencyIsoCode());
+        
         transferFundsRequest.setAmount(adyenAmount);
 
         transferFundsRequest.setSourceAccountCode(getAccountCode(accountHolderResponse));

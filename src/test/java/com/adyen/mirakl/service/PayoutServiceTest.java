@@ -133,9 +133,10 @@ public class PayoutServiceTest {
         GetAccountHolderResponse getAccountHolderResponse = getResponseWithBankDetails();
         MiraklVoucherEntry miraklVoucherEntry = new MiraklVoucherEntry();
         miraklVoucherEntry.setSubscriptionAmount("12.34");
+        miraklVoucherEntry.setSubscriptionAmountVat("39.19");
         miraklVoucherEntry.setCurrencyIsoCode("EUR");
         TransferFundsRequest transferFundsRequest = payoutService.createTransferFundsSubscription(getAccountHolderResponse, miraklVoucherEntry);
-        assertEquals(1234L, (long) transferFundsRequest.getAmount().getValue());
+        assertEquals(5153L, (long) transferFundsRequest.getAmount().getValue());
         assertEquals("EUR", transferFundsRequest.getAmount().getCurrency());
     }
 
