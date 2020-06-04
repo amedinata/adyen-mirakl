@@ -31,7 +31,9 @@ xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liqui
 -->
 <changeSet id="20200603153000-1" author="tiendanimal">
     <addColumn tableName="mirakl_voucher_entry">
-        <column name="subscription_amount_vat" type="varchar(255)"/>
+        <column name="subscription_amount_vat" type="varchar(255)">
+        	<constraints nullable="true" />
+        </column>
     </addColumn>
     
 </changeSet>
